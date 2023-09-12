@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Consulta CEP </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input label="CEP" placeholder="12345-678" [(ngModel)]="cep"></ion-input>
+  </ion-item>
+  <ion-button (click)="consultarCEP(cep)" color="dark" expand="block">Consultar</ion-button>
+  <ion-item>{{rua}}</ion-item>
+  <ion-item>{{bairro}}</ion-item>
+  <ion-item>{{cidade}}</ion-item>
+  <ion-item>{{estado}}</ion-item>
+
+  <ion-title id="texto">Consultar pelo Endereço</ion-title>
+  <ion-input label="UF" fill="solid" placeholder="UF" [(ngModel)]="uf"></ion-input>
+  <ion-input label="Logradouro" fill="solid" placeholder="Rua Ouro Preto" [(ngModel)]="logradouro"></ion-input>
+  <ion-input label="Cidade" fill="solid" placeholder="Minas Gerais" [(ngModel)]="localidade"></ion-input>
+  <ion-button color="dark" expand="block" (click)="consultarEndereco(uf, localidade, logradouro)">Consultar</ion-button>
+  <ion-list *ngFor="let resultado of resultadoCEP" >
+    <ion-item>{{resultado}}</ion-item>
+  </ion-list>
+</ion-content>
